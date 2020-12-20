@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'comics-gui';
+  selectedFeature = 'myList';
+
+  onSelected(feature: string): void {
+    this.selectedFeature = feature;
+  }
 }

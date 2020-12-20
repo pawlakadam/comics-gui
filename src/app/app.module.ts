@@ -3,16 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComicListComponent } from './comic-list/comic-list.component';
+import { ComicsListComponent } from './comics/comics-list/comics-list.component';
 import { ComicsHeaderComponent } from './comics-header/comics-header.component';
-import { ComicsContentComponent } from './comics-content/comics-content.component';
+import { ComicsDetailsComponent } from './comics/comics-details/comics-details.component';
+import { ComicsItemComponent } from './comics/comics-list/comics-item/comics-item.component';
+import { HeroesListComponent } from './heroes-list/heroes-list.component';
+import { HeroesEditComponent } from './heroes-list/heroes-edit/heroes-edit.component';
+import { ComicsComponent } from './comics/comics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComicListComponent,
+    ComicsListComponent,
     ComicsHeaderComponent,
-    ComicsContentComponent
+    ComicsDetailsComponent,
+    ComicsItemComponent,
+    HeroesListComponent,
+    HeroesEditComponent,
+    ComicsComponent
   ],
   imports: [
     BrowserModule,

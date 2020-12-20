@@ -1,15 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <app-comics-header></app-comics-header>
+    <app-comics-header (featureEmitter)="onSelected($event)"></app-comics-header>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
-      <app-comic-list></app-comic-list>
-    </div>
-    <div class="col-md-9">
-      <app-comics-content></app-comics-content>
+    <div class="col-md-12">
+      <app-comics *ngIf="selectedFeature ==='myList'"></app-comics>
+      <app-heroes-list *ngIf="selectedFeature !='myList'"></app-heroes-list>
     </div>
   </div>
 </div>
