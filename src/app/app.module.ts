@@ -10,6 +10,8 @@ import { ComicsItemComponent } from './comics/comics-list/comics-item/comics-ite
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { HeroesEditComponent } from './heroes-list/heroes-edit/heroes-edit.component';
 import { ComicsComponent } from './comics/comics.component';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ComicsComponent } from './comics/comics.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

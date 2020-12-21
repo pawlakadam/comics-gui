@@ -3,7 +3,8 @@
     <app-comic-list (comicsSelectedEmitter)="selectedComics = $event"></app-comic-list>
   </div>
   <div class="col-md-7">
-    <app-comics-details [comics]="selectedComics"></app-comics-details>
+    <app-comics-details *ngIf="selectedComics; else infoText"
+                        [comics]="selectedComics"></app-comics-details>
     <ng-template #infoText>
       <p>Zaznacz komiks</p>
     </ng-template>
