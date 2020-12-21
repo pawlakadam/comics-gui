@@ -11,6 +11,7 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { HeroesEditComponent } from './heroes-list/heroes-edit/heroes-edit.component';
 import { ComicsComponent } from './comics/comics.component';
 import {FormsModule} from '@angular/forms';
+import {DropDownDirective} from './share/dropdown.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     ComicsItemComponent,
     HeroesListComponent,
     HeroesEditComponent,
-    ComicsComponent
+    ComicsComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,
