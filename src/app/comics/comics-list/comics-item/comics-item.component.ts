@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Comics} from '../comics.model';
+import {ComicsService} from '../../comics.service';
 
 @Component({
   selector: 'app-comics-item',
@@ -10,17 +11,14 @@ export class ComicsItemComponent implements OnInit {
   // @ts-ignore
   @Input() comics: Comics;
 
-  @Output()
-  comicsSelectEmitter = new EventEmitter<void>();
-
-  constructor() {
+  constructor(private service: ComicsService) {
   }
 
   ngOnInit(): void {
   }
 
 
-  onSelected() {
-    this.comicsSelectEmitter.emit();
+  onSelected(): void {
+    this.service.comicsEmiter.emit(this.comics);
   }
 }

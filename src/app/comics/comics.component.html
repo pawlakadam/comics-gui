@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-5">
-    <app-comic-list (comicsSelectedEmitter)="selectedComics = $event"></app-comic-list>
+    <app-comic-list></app-comic-list>
   </div>
   <div class="col-md-7">
     <app-comics-details *ngIf="selectedComics; else infoText"

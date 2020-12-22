@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Comics} from './comics.model';
+import {ComicsService} from '../comics.service';
 
 @Component({
   selector: 'app-comic-list',
@@ -10,20 +11,10 @@ export class ComicsListComponent implements OnInit {
 
   allComics: Comics[] = [];
 
-  @Output() comicsSelectedEmitter = new EventEmitter<Comics>();
-
-  constructor() {
+  constructor(private service: ComicsService) {
   }
 
   ngOnInit(): void {
-    this.allComics.push(
-      new Comics('Batman', 'Shadow of the bat', 'assets/img/batman.jpg'),
-      new Comics('Superman', 'Action Comics', 'assets/img/superman.jpg'),
-      new Comics('X-men', 'Marvel Comics', 'assets/img/x-men.jpg'));
-  }
-
-
-  onSelected(comics: Comics): void {
-    this.comicsSelectedEmitter.emit(comics);
+    this.allComics = this.service.getAllComics;
   }
 }

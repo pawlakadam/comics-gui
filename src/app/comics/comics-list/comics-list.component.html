@@ -6,8 +6,7 @@
   <div class="row">
     <div class="col-xs-12">
       <app-comics-item *ngFor="let comicsEl of allComics"
-                       [comics]="comicsEl"
-      (comicsSelectEmitter)="onSelected(comicsEl)"></app-comics-item>
+                       [comics]="comicsEl"></app-comics-item>
     </div>
   </div>
 </div>
