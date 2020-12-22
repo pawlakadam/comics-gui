@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-heroes-edit',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./heroes-edit.component.css']
 })
 export class HeroesEditComponent implements OnInit {
+  @ViewChild('nameInput') localNameRef: ElementRef;
 
-  constructor() { }
+  @Output() addInputEmitter = new EventEmitter<{title: string}>();
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  onAddItem(): void{
+    this.addInputEmitter.emit(this.localNameRef.nativeElement.value);
   }
 
 }
