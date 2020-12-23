@@ -12,6 +12,7 @@ import { HeroesEditComponent } from './heroes-list/heroes-edit/heroes-edit.compo
 import { ComicsComponent } from './comics/comics.component';
 import {FormsModule} from '@angular/forms';
 import {DropDownDirective} from './share/dropdown.directive';
+import {HeroService} from "./heroes-list/hero.service";
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {DropDownDirective} from './share/dropdown.directive';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

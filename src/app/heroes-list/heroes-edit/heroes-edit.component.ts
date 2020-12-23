@@ -1,23 +1,24 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {HeroService} from '../hero.service';
+import {Hero} from "../hero.model";
 
 @Component({
   selector: 'app-heroes-edit',
   templateUrl: './heroes-edit.component.html',
   styleUrls: ['./heroes-edit.component.css']
 })
-export class HeroesEditComponent implements OnInit {
+export class HeroesEditComponent {
   @ViewChild('nameInput') localNameRef: ElementRef;
 
-  @Output() addInputEmitter = new EventEmitter<{title: string}>();
+  @Output() addInputEmitter = new EventEmitter<{ title: string }>();
 
-  constructor() {
+  constructor(private service: HeroService) {
   }
 
-  ngOnInit(): void {
-  }
 
-  onAddItem(): void{
-    this.addInputEmitter.emit(this.localNameRef.nativeElement.value);
+  onAddItem(): void {
+    const hero = new Hero(this.localNameRef.nativeElement.value);
+    this.service.addHero(hero);
   }
 
 }
