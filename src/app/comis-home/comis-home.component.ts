@@ -15,11 +15,11 @@ export class ComisHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // this.router.navigate(['list'], {relativeTo: this.activatedRoute});
   }
 
   addComics(): void {
-    this.router.navigate(['comics/add'], {relativeTo: this.activatedRoute});
+    this.router.navigate(['add'], {relativeTo: this.activatedRoute});
   }
 
 }

@@ -13,8 +13,8 @@ import {ComicsComponent} from "./comics/comics.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DropDownDirective} from "./share/dropdown.directive";
 import {HeroService} from "./heroes-list/hero.service";
-import {ComisFilterComponent} from "./comis-home/comis-filter/comis-filter.component";
-import {ComisAddComponent} from "./comis-home/comis-add/comis-add.component";
+import {ComicsFilterComponent} from "./comis-home/comics-filter/comics-filter.component";
+import {ComicsAddComponent} from "./comis-home/comics-add/comics-add.component";
 import { ComisHomeComponent } from "./comis-home/comis-home.component";
 import { ComicsTableComponent } from "./comis-home/comics-table/comics-table.component";
 import { DetailsComponent } from "./comis-home/details/details.component";
@@ -37,8 +37,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeroesEditComponent,
     ComicsComponent,
     DropDownDirective,
-    ComisFilterComponent,
-    ComisAddComponent,
+    ComicsFilterComponent,
+    ComicsAddComponent,
     ComisHomeComponent,
     ComicsTableComponent,
     DetailsComponent,

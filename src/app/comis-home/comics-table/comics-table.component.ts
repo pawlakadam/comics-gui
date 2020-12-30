@@ -13,7 +13,7 @@ export class ComicsTableComponent implements OnInit {
 
   constructor(private comicsService: ComicsService,
               private router: Router,
-              private activeRouting: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -30,6 +30,6 @@ export class ComicsTableComponent implements OnInit {
   }
 
   click(id: number): void {
-    this.router.navigate(['/comics/' + id], {relativeTo: this.activeRouting});
+    this.router.navigate(['comics/' + id]);
   }
 }

@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private isLogged = false;
+  private isLogged = true;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }

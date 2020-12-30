@@ -6,11 +6,11 @@
   </div>
   <div class="row">
     <div class="col-md-2">
-
-      <app-comis-filter></app-comis-filter>
+      <app-comics-filter></app-comics-filter>
     </div>
     <div class="col-md-9">
-      <app-comics-table></app-comics-table>
+      <router-outlet></router-outlet>
+<!--      <app-comics-table></app-comics-table>-->
       <!--      <app-comics *ngIf="selectedFeature ==='myList'"></app-comics>-->
       <!--      <app-heroes-list *ngIf="selectedFeature !='myList'"></app-heroes-list>-->
     </div>

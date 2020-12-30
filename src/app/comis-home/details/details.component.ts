@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComicsService} from '../../comics/comics.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {Comics} from '../../comics/comics-list/comics.model';
 import {Observable} from 'rxjs';
 
@@ -14,11 +14,15 @@ export class DetailsComponent implements OnInit {
   selectComics$: Observable<Comics>;
 
   constructor(private comicsService: ComicsService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    const param = +this.activatedRoute.snapshot.params.id;
-    this.selectComics$ = this.comicsService.findDetailsComics$(param);
+    this.activatedRoute.params
+      .subscribe((param: Params) => {
+        const index = +param.id;
+        this.selectComics$ = this.comicsService.findDetailsComics$(index);
+      });
   }
 
 }
