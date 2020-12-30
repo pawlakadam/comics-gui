@@ -1,6 +1,6 @@
 import {Comics} from './comics-list/comics.model';
 import {EventEmitter} from '@angular/core';
-import {Observable, of} from "rxjs";
+import {Observable, of} from 'rxjs';
 
 export class ComicsService {
   private emiter = new EventEmitter<Comics>();
@@ -20,7 +20,6 @@ export class ComicsService {
   }
 
   findDetailsComics$(id: number): Observable<Comics> {
-    console.log('Szukam: ' + id);
    return of(this.allComics.find(c => c.id === id) as Comics);
   }
 }

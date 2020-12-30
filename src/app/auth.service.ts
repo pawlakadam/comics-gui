@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {Router} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
   private isLogged = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   isAuthenticate(): boolean {
@@ -13,15 +13,23 @@ export class AuthService {
   }
 
   login(login: string, password: string): boolean {
-    if (login === "kasia" && password === "kasia") {
+    if (login === 'kasia' && password === 'kasia') {
       this.isLogged = true;
-      this.router.navigate(["/comics"]);
+      let routerPath = '/comics';
+      this.activatedRoute.queryParams.subscribe(
+        (params: Params) => {
+          if (params.returnUrl) {
+            routerPath = params.returnUrl;
+          }
+        }
+      );
+      this.router.navigate([routerPath]);
     }
     return this.isLogged;
   }
 
   logout(): void {
     this.isLogged = false;
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 }

@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {Comics} from "../../comics/comics-list/comics.model";
-import {ComicsService} from "../../comics/comics.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Comics} from '../../comics/comics-list/comics.model';
+import {ComicsService} from '../../comics/comics.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: "app-comics-table",
-  templateUrl: "./comics-table.component.html",
-  styleUrls: ["./comics-table.component.css"]
+  selector: 'app-comics-table',
+  templateUrl: './comics-table.component.html',
+  styleUrls: ['./comics-table.component.css']
 })
 export class ComicsTableComponent implements OnInit {
   allComics: Comics[] = [];
@@ -30,7 +30,6 @@ export class ComicsTableComponent implements OnInit {
   }
 
   click(id: number): void {
-    console.log("Klikam");
-    this.router.navigate(["/comics/" + id], {relativeTo: this.activeRouting});
+    this.router.navigate(['/comics/' + id], {relativeTo: this.activeRouting});
   }
 }

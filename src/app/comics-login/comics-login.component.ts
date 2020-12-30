@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {AuthService} from "../auth.service";
-import {Router} from "@angular/router";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: "app-comics-login",
-  templateUrl: "./comics-login.component.html",
-  styleUrls: ["./comics-login.component.css"]
+  selector: 'app-comics-login',
+  templateUrl: './comics-login.component.html',
+  styleUrls: ['./comics-login.component.css']
 })
 export class ComicsLoginComponent implements OnInit {
 
@@ -27,15 +27,15 @@ export class ComicsLoginComponent implements OnInit {
     });
 
     if (this.authService.isAuthenticate()) {
-      this.router.navigate(["/comics"]);
+      this.router.navigate(['/comics']);
     }
   }
 
   onLogin(login: HTMLInputElement, password: HTMLInputElement): void {
     if (!this.authService.login(login.value, password.value)) {
       this.wrongCredentials = true;
-      login.value = "";
-      password.value = "";
+      login.value = '';
+      password.value = '';
     } else {
       this.wrongCredentials = false;
     }
