@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/comics">Zestawienie</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Szczegóły</li>
+  </ol>
+</nav>
 <ng-container *ngIf="(selectComics$| async) as selectedComics">
   {{selectedComics.title}}
 
