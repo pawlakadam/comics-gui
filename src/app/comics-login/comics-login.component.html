@@ -1,0 +1,33 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm">
+      <div formGroupName="userData">
+        <div class="form-group">
+          <input
+                 #login type="text" id="login"
+                 class="fadeIn second"
+                 name="login" placeholder="Login"
+                 formControlName="username">
+          <span class="help-block" *ngIf="userData?.get('username')?.invalid && userData?.get('username')?.touched">Pole jest wymagane</span>
+        </div>
+        <div class="form-group">
+          <input  #password type="password" id="password"
+                 class="fadeIn third" name="login" placeholder="Hasło"
+                 formControlName="password">
+          <span class="help-block" *ngIf="userData?.get('password')?.invalid && userData?.get('password')?.touched">Pole jest wymagane</span>
+        </div>
+      </div>
+      <input type="submit" (click)="onLogin(login, password)" class="fadeIn fourth" value="Zaloguj się ">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Zapomniałeś hasła?</a>
+    </div>
+
+  </div>
+</div>

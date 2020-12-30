@@ -1,0 +1,7 @@
+<ng-container *ngIf="(selectComics$| async) as selectedComics">
+  {{selectedComics.title}}
+
+
+  <img src="{{selectedComics.image}}" class="img-fluid" alt="Responsive image">
+</ng-container>
+

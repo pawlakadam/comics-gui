@@ -12,15 +12,17 @@
         <li><a href="#" (click)="onSelected('heroes')">Postacie</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropDown>
-          <a href="#" class="dropdown-toggle" role="button">Zarządzaj <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">Zapisz</a>
-              <a href="#">Pobierz</a>
-            </li>
-          </ul>
-        </li>
+        <button *ngIf="!isAuthenticate()" (click)="onLogin()" >Zaloguj</button>
+        <button *ngIf="isAuthenticate()" (click)="onLogout()" >Wyloguj</button>
+<!--        <li class="dropdown" appDropDown>-->
+<!--          <a class="dropdown-toggle" role="button">Menu<span class="caret"></span></a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li>-->
+<!--              <a  (click)="onLogin()">Zaloguj</a>-->
+<!--              <a  (click)="onLogout()">Wyloguj</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </li>-->
       </ul>
     </div>
   </div>

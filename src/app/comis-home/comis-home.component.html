@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-7">
+      <button type="submit" class="btn btn-success" (click)="addComics()">Dodaj</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+
+      <app-comis-filter></app-comis-filter>
+    </div>
+    <div class="col-md-9">
+      <app-comics-table></app-comics-table>
+      <!--      <app-comics *ngIf="selectedFeature ==='myList'"></app-comics>-->
+      <!--      <app-heroes-list *ngIf="selectedFeature !='myList'"></app-heroes-list>-->
+    </div>
+  </div>
+</div>
+

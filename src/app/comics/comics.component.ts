@@ -1,12 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Comics} from './comics-list/comics.model';
-import {ComicsService} from './comics.service';
+import {Component, OnInit} from "@angular/core";
+import {Comics} from "./comics-list/comics.model";
+import {ComicsService} from "./comics.service";
 
 @Component({
-  selector: 'app-comics',
-  templateUrl: './comics.component.html',
-  styleUrls: ['./comics.component.css'],
-  providers: [ComicsService]
+  selector: "app-comics",
+  templateUrl: "./comics.component.html",
+  styleUrls: ["./comics.component.css"]
 })
 export class ComicsComponent implements OnInit {
 // @ts-ignore
