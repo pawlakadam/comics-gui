@@ -39,11 +39,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let comics of allComics; let i = index" (click)="click(comics.id)">
+  <tr *ngFor="let comics of allComics; let i = index" (click)="click(comics.id ? comics.id : '-1')">
     <th scope="row">{{i+1}}</th>
-    <td>{{comics.description}}</td>
+    <td>{{comics.publisher}}</td>
     <td>{{comics.title}}</td>
-    <td><img src="{{comics.image}}"
+    <td><img src="{{comics?.fileContent}}"
              alt="{{comics.title}}" class="img-responsive" style="max-height: 50px"></td>
   </tr>
 

@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/comics">Zestawienie</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dodaj</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+<form [formGroup]="comicsAddForm" (ngSubmit)="addComics()">
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="publisher">Wydawnictwo</label>
+    <input type="text" id="publisher" class="form-control" formControlName="publisher">
+  </div>
+  <div class="form-group">
+    <label for="file">Dodaj okładkę</label>
+    <input
+      formControlName="file"
+      id="file"
+      type="file"
+      class="form-control"
+      (change)="onFileChange($event)">
+    <div *ngIf="comicsForm.file.touched && comicsForm.file.invalid" class="alert alert-danger">
+      <div *ngIf="comicsForm.file.errors.required">File is required.</div>
+    </div>
+    <div *ngIf="comicsForm.file.valid">
+      <img src="comicsForm.file"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Zapisz</button>
+    <button type="button" class="btn btn-default" (click)="fetchComics()" >Pobierz</button>
+  </div>
+</form>
+
+  </div>
+</div>

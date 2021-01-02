@@ -1,41 +1,30 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from "./app-routing.module";
-import {AppComponent} from "./app.component";
-import {ComicsListComponent} from "./comics/comics-list/comics-list.component";
-import {ComicsHeaderComponent} from "./comics-header/comics-header.component";
-import {ComicsDetailsComponent} from "./comics/comics-details/comics-details.component";
-import {ComicsItemComponent} from "./comics/comics-list/comics-item/comics-item.component";
-import {HeroesListComponent} from "./heroes-list/heroes-list.component";
-import {HeroesEditComponent} from "./heroes-list/heroes-edit/heroes-edit.component";
-import {ComicsComponent} from "./comics/comics.component";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DropDownDirective} from "./share/dropdown.directive";
-import {HeroService} from "./heroes-list/hero.service";
-import {ComicsFilterComponent} from "./comis-home/comics-filter/comics-filter.component";
-import {ComicsAddComponent} from "./comis-home/comics-add/comics-add.component";
-import { ComisHomeComponent } from "./comis-home/comis-home.component";
-import { ComicsTableComponent } from "./comis-home/comics-table/comics-table.component";
-import { DetailsComponent } from "./comis-home/details/details.component";
-import {ComicsService} from "./comics/comics.service";
-import {AuthService} from "./auth.service";
-import { ComicsLoginComponent } from './comics-login/comics-login.component';
-import {AuthGard} from "./auth.guard.service";
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ComicsHeaderComponent} from './comics-header/comics-header.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DropDownDirective} from './share/dropdown.directive';
+import {ComicsFilterComponent} from './comics/comics-filter/comics-filter.component';
+import {ComicsAddComponent} from './comics/comics-add/comics-add.component';
+import {ComisHomeComponent} from './comics/comis-home.component';
+import {ComicsTableComponent} from './comics/comics-table/comics-table.component';
+import {DetailsComponent} from './comics/details/details.component';
+import {ComicsService} from './comics/comics.service';
+import {AuthService} from './auth.service';
+import {ComicsLoginComponent} from './comics-login/comics-login.component';
+import {AuthGard} from './auth.guard.service';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptorService} from './auth-interceptor.service';
+import {ComicsResolver} from './comics/comics-resolver.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComicsListComponent,
     ComicsHeaderComponent,
-    ComicsDetailsComponent,
-    ComicsItemComponent,
-    HeroesListComponent,
-    HeroesEditComponent,
-    ComicsComponent,
     DropDownDirective,
     ComicsFilterComponent,
     ComicsAddComponent,
@@ -49,9 +38,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [HeroService, ComicsService, AuthService, AuthGard],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+ ComicsService, AuthService, AuthGard,
+  ComicsResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {

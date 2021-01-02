@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Comics} from '../../comics/comics-list/comics.model';
 import {ComicsService} from '../../comics/comics.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {IComics} from '../comics.model.component';
+
 
 @Component({
   selector: 'app-comics-table',
@@ -9,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./comics-table.component.css']
 })
 export class ComicsTableComponent implements OnInit {
-  allComics: Comics[] = [];
+  allComics: IComics[] = [];
 
   constructor(private comicsService: ComicsService,
               private router: Router,
@@ -19,7 +20,7 @@ export class ComicsTableComponent implements OnInit {
   ngOnInit(): void {
     this.allComics = this.comicsService.getAllComics;
     this.comicsService.comicsEmiter.subscribe(
-      (newComics: Comics) => {
+      (newComics: IComics) => {
         this.allComics.push(newComics);
       }
     );
@@ -29,7 +30,13 @@ export class ComicsTableComponent implements OnInit {
 
   }
 
-  click(id: number): void {
-    this.router.navigate(['comics/' + id]);
+  click(id: string): void {
+    console.log('Patrz: ' + id);
+    if (id === '-1') {
+      return;
+    }
+    if (id) {
+      this.router.navigate(['comics/' + id]);
+    }
   }
 }

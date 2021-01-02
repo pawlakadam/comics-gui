@@ -4,10 +4,10 @@
     <li class="breadcrumb-item active" aria-current="page">Szczegóły</li>
   </ol>
 </nav>
-<ng-container *ngIf="(selectComics$| async) as selectedComics">
-  {{selectedComics.title}}
+<ng-container *ngIf="selectComics">
+  {{selectComics.title}}
 
 
-  <img src="{{selectedComics.image}}" class="img-fluid" alt="Responsive image">
+  <img src="{{selectComics.fileContent}}" class="img-fluid" alt="Responsive image">
 </ng-container>
 
