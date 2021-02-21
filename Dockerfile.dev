@@ -1,11 +1,10 @@
-FROM node:10.14.1
+FROM node:alpine
 
 WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install -g @angular/cli
-RUN npm update
+RUN npm install -g @angular/cli --save-dev @angular-devkit/build-angular
 
 COPY . .
 EXPOSE 4200
