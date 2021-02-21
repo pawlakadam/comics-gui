@@ -3,6 +3,4 @@ services:
   - docker
 before_install:
   - docker build -t pawlakadam/comics-gui -f Dockerfile.dev .
-script:
-  - docker run pawlakadam/comics-gui npm run test -- -- coverage
 language: generic
