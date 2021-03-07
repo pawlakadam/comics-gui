@@ -1,16 +1,7 @@
 sudo: required
 services:
   - docker
-language: generic
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-2"
-  app: "docker-comics"
-  env: "Dockercomics-env"
-  bucket_name: "elasticbeanstalk-us-east-2-377048122373"
-  bucket_path: "docker-comics"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-
+after_success:
+  - docker build -t apawlak/comics-gui .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push apawlak/comics-gui
